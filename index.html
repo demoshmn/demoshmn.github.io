@@ -58,15 +58,12 @@ window.onload = function () {
 
 function ClickRequestDeviceMotionEvent () {
 
-alert("Hello");
-
   window.DeviceMotionEvent.requestPermission()
 
     .then(response => {
 
       if (response === 'granted') {
 		
-		alert("Hello1");
         window.addEventListener('devicemotion',
 
           () => { document.body.innerHTML = 'DeviceMotion permissions granted.' },
@@ -74,9 +71,7 @@ alert("Hello");
           (e) => { throw e }
 
       )} else {
-		alert("Hello2");
         console.log('DeviceMotion permissions not granted.')
-
       }
 
     })
