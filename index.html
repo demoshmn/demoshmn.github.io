@@ -90,7 +90,7 @@ alert("Hello");
 }
 
       // handle regular non iOS 13+ devices
-window.addEventListener("devicemotion", handleMotionEvent, true);
+window.addEventListener("devicemotion", setTimeout(handleMotionEvent,2000));
 
 
 	
