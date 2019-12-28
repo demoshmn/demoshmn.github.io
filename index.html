@@ -69,7 +69,7 @@ alert("Hello");
 		alert("Hello1");
         window.addEventListener('devicemotion',
 
-          () => { document.body.innerHTML = 'DeviceMotion permissions granted.' },
+          () => { handleMotionEvent() },
 
           (e) => { throw e }
 
