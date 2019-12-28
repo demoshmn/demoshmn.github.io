@@ -15,9 +15,9 @@ Test iOS
 
 function handleMotionEvent(event) {
 
-    var x = event.accelerationIncludingGravity.x;
-    var y = event.accelerationIncludingGravity.y;
-    var z = event.accelerationIncludingGravity.z;
+    var x = event.acceleration.x;
+    var y = event.acceleration.y;
+    var z = event.acceleration.z;
 	
 	  document.body.innerHTML = "Accelerometer: "
     + x + ", "
@@ -69,7 +69,7 @@ alert("Hello");
 		alert("Hello1");
         window.addEventListener('devicemotion',
 
-          () => { handleMotionEvent() },
+          () => { document.body.innerHTML = 'DeviceMotion permissions granted.' },
 
           (e) => { throw e }
 
@@ -90,7 +90,7 @@ alert("Hello");
 }
 
       // handle regular non iOS 13+ devices
-//window.addEventListener("devicemotion", handleMotionEvent, true);
+window.addEventListener("devicemotion", handleMotionEvent, true);
 
 
 	
