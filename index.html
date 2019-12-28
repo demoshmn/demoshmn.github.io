@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<title> Test </title>
+</head>
+<body>
+<div id="test" onclick="doFunction();">
+Test iOS
+</div>
+</body>
+
+<script>
+
+function handleMotionEvent(event) {
+
+    var x = event.accelerationIncludingGravity.x;
+    var y = event.accelerationIncludingGravity.y;
+    var z = event.accelerationIncludingGravity.z;
+	
+	  document.body.innerHTML = "Accelerometer: "
+    + x + ", "
+    + y + ", "
+    + z; 
+
+    // Do something awesome.
+}
+
+
+
+window.onload = function () {
+
+
+
+ // Check if is IOS 13 when page loads.
+
+  if ( window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function' ){
+
+
+
+      // Everything here is just a lazy banner. You can do the banner your way.
+
+      //const banner = document.createElement('div')
+
+      //banner.innerHTML = '<div style="z-index: 1; position: absolute; width: 100%; background-color:#000; color: #fff"><p style="padding: 10px">Click here to enable DeviceMotion</p></div>'
+
+      //document.querySelector('body').appendChild(banner)
+	  
+		//document.getElementById("test").onclick = ClickRequestDeviceMotionEvent() // You NEED to bind the function into a onClick event. An artificial 'onClick' will NOT work.
+
+  }
+
+}
+
+
+
+
+function ClickRequestDeviceMotionEvent () {
+
+alert("Hello");
+
+  window.DeviceMotionEvent.requestPermission()
+
+    .then(response => {
+
+      if (response === 'granted') {
+		
+		alert("Hello1");
+        window.addEventListener('devicemotion',
+
+          () => { document.body.innerHTML = 'DeviceMotion permissions granted.' },
+
+          (e) => { throw e }
+
+      )} else {
+		alert("Hello2");
+        console.log('DeviceMotion permissions not granted.')
+
+      }
+
+    })
+
+    .catch(e => {
+
+      console.error(e)
+
+    })
+
+}
+
+      // handle regular non iOS 13+ devices
+//window.addEventListener("devicemotion", handleMotionEvent, true);
+
+
+	
+  </script>
+
+
+</html>
