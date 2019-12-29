@@ -18,7 +18,8 @@ var x = 0;
 var y = 0;
 var z = 0;
 var mag = 0;
-
+var checkForPermission = false;
+	
 function handleMotionEvent(event) {
 
     x = event.accelerationIncludingGravity.x;
@@ -68,7 +69,8 @@ function ClickRequestDeviceMotionEvent () {
 		
         window.addEventListener('devicemotion',
 
-          () => { document.body.innerHTML = 'DeviceMotion permissions granted.'},
+          () => { document.body.innerHTML = 'DeviceMotion permissions granted.';
+		checkForPermission = true; },
 
           (e) => { throw e }
 
@@ -91,6 +93,7 @@ window.addEventListener("devicemotion", handleMotionEvent, true);
 
 window.setInterval(function(){
 
+	if(checkForPermission == true){
 	 document.body.innerHTML = "Accelerometer: "
 	    + x + ", "
 	    + y + ", "
@@ -102,7 +105,8 @@ window.setInterval(function(){
 		if(set.length < 50){
 			set.push(onetuple);
 		}
-
+	}
+	
 	}, 2000);
 	
   </script>
