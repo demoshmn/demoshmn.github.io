@@ -13,17 +13,19 @@ Test iOS
 
 <script>
 
+var set = []
+var x = 0;
+var y = 0;
+var z = 0;
+var mag = 0;
+
 function handleMotionEvent(event) {
 
-    var x = event.acceleration.x;
-    var y = event.acceleration.y;
-    var z = event.acceleration.z;
+    x = event.accelerationIncludingGravity.x;
+    y = event.accelerationIncludingGravity.y;
+    z = event.accelerationIncludingGravity.z;
+    mag = Math.sqrt((x*x) + (y*y) + (z*z))
 	
-	  document.body.innerHTML = "Accelerometer: "
-    + x + ", "
-    + y + ", "
-    + z; 
-
     // Do something awesome.
 }
 
@@ -87,6 +89,21 @@ function ClickRequestDeviceMotionEvent () {
       // handle regular non iOS 13+ devices
 window.addEventListener("devicemotion", handleMotionEvent, true);
 
+window.setInterval(function(){
+
+ document.body.innerHTML = "Accelerometer: "
+    + x + ", "
+    + y + ", "
+    + z + ","
+		+ mag +"," + set.length;
+		
+	var onetuple = [x, y, z, mag]
+	
+	if(set.length < 50){
+		set.push(onetuple);
+	}
+
+}, 2000);
 
 	
   </script>
