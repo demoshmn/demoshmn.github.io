@@ -68,24 +68,7 @@ function ClickRequestDeviceMotionEvent () {
 		
         window.addEventListener('devicemotion',
 
-          () => { document.body.innerHTML = 'DeviceMotion permissions granted.' 
-		
-		window.setInterval(function(){
-
-		 document.body.innerHTML = "Accelerometer: "
-		    + x + ", "
-		    + y + ", "
-		    + z + ","
-				+ mag +"," + set.length;
-
-			var onetuple = [x, y, z, mag]
-
-			if(set.length < 50){
-				set.push(onetuple);
-			}
-
-		}, 2000);
-		},
+          () => { document.body.innerHTML = 'DeviceMotion permissions granted.'},
 
           (e) => { throw e }
 
@@ -106,6 +89,21 @@ function ClickRequestDeviceMotionEvent () {
       // handle regular non iOS 13+ devices
 window.addEventListener("devicemotion", handleMotionEvent, true);
 
+window.setInterval(function(){
+
+	 document.body.innerHTML = "Accelerometer: "
+	    + x + ", "
+	    + y + ", "
+	    + z + ","
+			+ mag +"," + set.length;
+
+		var onetuple = [x, y, z, mag]
+
+		if(set.length < 50){
+			set.push(onetuple);
+		}
+
+	}, 2000);
 	
   </script>
 
