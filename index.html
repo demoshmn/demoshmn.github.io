@@ -125,10 +125,15 @@ function finishTask(){
 	
 	// Close the task window
 	document.getElementById("task").style.display = "none";
+	document.getElementById("task").style.display = "none";
 	document.getElementById("thankYou").style.display = "block";
 }
 
 window.setInterval(function(){
+	
+	if(x == 0){
+		return;
+	}
 	 document.getElementById("values").innerHTML = "Accelerometer: "
 	    + x + ", "
 	    + y + ", "
