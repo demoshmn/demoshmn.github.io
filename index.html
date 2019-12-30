@@ -83,7 +83,7 @@ function ClickRequestDeviceMotionEvent () {
 
 		window.addEventListener('devicemotion',
 
-		  () => { document.body.innerHTML = 'DeviceMotion permissions granted.';
+		  () => { //document.getElementById("values").innerHTML = 'DeviceMotion permissions granted.';
 			window.addEventListener("devicemotion", handleMotionEvent, true);},
 
 		  (e) => { throw e }
