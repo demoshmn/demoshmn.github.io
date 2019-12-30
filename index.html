@@ -40,12 +40,17 @@
 		<center> <button type="button" id="finishBtn" onclick="finishTask();">Finish</button> </center>
 
 	</div>
+	
+	<div id="thankYou">
+		<center> <h2> Thank you for participating! </h2> </center>
+	</div>
 
 </body>
 
 <script>
 
 document.getElementById("task").style.display = "none";
+document.getElementById("thankYou").style.display = "none";
 
 var set = []
 var x = 0;
@@ -84,7 +89,10 @@ function ClickRequestDeviceMotionEvent () {
 		window.addEventListener('devicemotion',
 
 		  () => { //document.getElementById("values").innerHTML = 'DeviceMotion permissions granted.';
-			window.addEventListener("devicemotion", handleMotionEvent, true);},
+			window.addEventListener("devicemotion", handleMotionEvent, true);
+			document.getElementById("introduction").style.display = "none";
+			document.getElementById("task").style.display = "block";
+		},
 
 		  (e) => { throw e }
 
@@ -117,6 +125,7 @@ function finishTask(){
 	
 	// Close the task window
 	document.getElementById("task").style.display = "none";
+	document.getElementById("thankYou").style.display = "block";
 }
 
 window.setInterval(function(){
