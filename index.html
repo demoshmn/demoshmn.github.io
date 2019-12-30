@@ -82,6 +82,9 @@ function ClickRequestDeviceMotionEvent () {
 	}
 }
 
+// handle regular non iOS 13+ devices
+window.addEventListener("devicemotion", handleMotionEvent, true);
+
 window.setInterval(function(){
 
 	 document.getElementById("values").innerHTML = "Accelerometer: "
