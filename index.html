@@ -97,6 +97,7 @@ function ClickRequestDeviceMotionEvent () {
 	}else{
 		// handle regular non iOS 13+ devices
 		window.addEventListener("devicemotion", handleMotionEvent, true);
+		document.getElementById("introduction").style.display = "none";
 	}
 }
 
@@ -105,13 +106,18 @@ window.setInterval(function(){
 	 document.getElementById("values").innerHTML = "Accelerometer: "
 	    + x + ", "
 	    + y + ", "
-	    + z + ","
-			+ mag +"," + set.length;
+	    + z + ", "
+			+ mag +", " + set.length;
 
 		var onetuple = [x, y, z, mag]
 
 		if(set.length < 50){
 			set.push(onetuple);
+		}else{
+			// Send data to Server
+			
+			// Clear set to capture new values
+			set = []
 		}
 	
 	}, 2000);
