@@ -1,17 +1,42 @@
 <html>
 <head>
-<meta charset="utf-8"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<title> Test </title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Test </title>
+	<style>
+		p {
+		 text-align: justify;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-<div id="test" onclick="ClickRequestDeviceMotionEvent();">
-Test iOS
-</div>
+	<div id="introduction">
+		<center> <h2>Article Reading Task</h2> </center>
+
+		<p>In this task, you are expected to read the article presented to you while maintaining your normal body posture. You should stand throughout the task, and refrain from using arm support such as arm rest, table, desk, etc. to support your arm(s) while completing the task.  </p>
+
+         <p>Press "Start" button in the bottom of the screen when you are ready.</p>
+		
+		<center> <button type="button" id="startBtn" onclick="ClickRequestDeviceMotionEvent();">Start</button> </center>
+		
+		<div id="values">
+			Test Acc
+		</div>
+	</div>
 	
-<div id="values">
-</div>
+	
+	<div id="task">
+		<center> <h2> Importance of Saying "No" </h2> </center>
+		
+		<p>We agree to many requests not because we want to do them, but because we don't want to be seen as rude, arrogant, or unhelpful. Often, you have to consider saying no to someone you will interact with again in the future—your co-worker, your spouse, your family, and friends. Saying no to these people can be particularly difficult because we like them and want to support them. Collaborating with others is an important element of life. The thought of straining the relationship outweighs the commitment of our time and energy.</p>
+
+         <p>For this reason, it can be helpful to be gracious in your response. Do whatever favors you can, and be warm-hearted and direct when you have to say no. But even after we have accounted for these social considerations, many of us still seem to do a poor job of managing the tradeoff between yes and no. We find ourselves over-committed to things that don't meaningfully improve or support those around us, and certainly don't improve our own lives. Perhaps one issue is how we think about the meaning of yes and no. The words “yes” and “no” get used in comparison to each other so often that it feels like they carry equal weight in conversation. In reality, they are not just opposite in meaning, but of entirely different magnitudes in commitment.</p>
+
+		<p>When you say no, you are only saying no to one option. When you say yes, you are saying no to every other option. Economist Tim Harford states, “Every time we say yes to a request, we are also saying no to anything else we might accomplish with the time.” Once you have committed to something, you have already decided how that future block of time will be spent. In other words, saying no saves you time in the future. Saying yes costs you time in the future. No is a form of time credit. You retain the ability to spend your future time however you want. Yes is a form of time debt. You have to pay back your commitment at some point.</p>
+
+		<p>No is a decision. Yes is a responsibility.</p>
+	</div>
 
 </body>
 
@@ -36,18 +61,11 @@ function handleMotionEvent(event) {
 
 
 window.onload = function () {
-
-
-
  // Check if is IOS 13 when page loads.
-
   if ( window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function' ){
 
   }
-
 }
-
-
 
 
 function ClickRequestDeviceMotionEvent () {
@@ -82,9 +100,6 @@ function ClickRequestDeviceMotionEvent () {
 	}
 }
 
-// handle regular non iOS 13+ devices
-//window.addEventListener("devicemotion", handleMotionEvent, true);
-
 window.setInterval(function(){
 
 	 document.getElementById("values").innerHTML = "Accelerometer: "
@@ -102,6 +117,5 @@ window.setInterval(function(){
 	}, 2000);
 	
   </script>
-
 
 </html>
