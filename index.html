@@ -133,6 +133,10 @@ function sendData(data){
 function finishTask(){
 	
 	taskFinishCheck = 1;
+	
+	// Stop capturing sensor data
+	clearInterval();
+	
 	// Send the final data to server
 	
 	// Close the task window
