@@ -61,7 +61,8 @@ var x = 0;
 var y = 0;
 var z = 0;
 var mag = 0;
-	
+var taskFinishCheck = 0;
+
 function handleMotionEvent(event) {
 
     x = event.accelerationIncludingGravity.x;
@@ -93,9 +94,14 @@ function ClickRequestDeviceMotionEvent () {
 		window.addEventListener('devicemotion',
 
 		  () => { //document.getElementById("values").innerHTML = 'DeviceMotion permissions granted.';
-			window.addEventListener("devicemotion", handleMotionEvent, true);
-			document.getElementById("introduction").style.display = "none";
-			document.getElementById("task").style.display = "block";
+			if (taskFinishCheck == 0){
+				window.addEventListener("devicemotion", handleMotionEvent, true);
+				document.getElementById("introduction").style.display = "none";
+				document.getElementById("task").style.display = "block";
+			}else{
+				document.getElementById("task").style.display = "none";
+				window.removeEventListener("devicemotion", handleMotionEvent, true);
+			}
 		},
 
 		  (e) => { throw e }
@@ -125,6 +131,8 @@ function sendData(data){
 }
 
 function finishTask(){
+	
+	taskFinishCheck = 1;
 	// Send the final data to server
 	
 	// Close the task window
