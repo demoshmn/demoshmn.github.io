@@ -225,7 +225,7 @@ function sendQuizData(){
     success: function(html){
 	alert("Successfully uploaded data");
      },
-    fail: function (jqXHR, textStatus, error) {
+    error: function (jqXHR, textStatus, error) {
 	alert("Failed to upload data");
     }
 });
