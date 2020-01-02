@@ -226,7 +226,8 @@ function sendQuizData(){
 	alert("Successfully uploaded data");
      },
     error: function (jqXHR, textStatus, error) {
-	alert("Failed to upload data");
+	alert("Status: " + textStatus);
+	alert("Error: " + error);
     }
 });
 }
