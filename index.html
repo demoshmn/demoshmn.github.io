@@ -236,9 +236,12 @@ function sendQuizData(){
     url: "http://chambers.cs.columbia.edu/recv.php",
     type: "POST",
     data: {quizData : resp},
-	success: function(html){
-		document.getElementById("quiz").innerHTML = html;
-     }
+    success: function(html){
+	
+     },
+    fail: function (jqXHR, textStatus, error) {
+	alert("Failed to upload data");
+    }
 });
 }
   </script>
