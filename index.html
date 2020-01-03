@@ -219,6 +219,7 @@ function sendQuizData(){
 	document.getElementById("thankYou").style.display = "block";
 	
 	$.ajax({
+	crossDomain: true,
     url: "http://chambers.cs.columbia.edu/recv.php",
     type: "POST",
     data: {quizData : resp},
